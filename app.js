@@ -42,7 +42,7 @@ async function deleteQueryBatch(query, resolve) {
   })
 }
 
-const exportJson = async () => {
+const downloadJson = async () => {
   const devices = (await firestore.collection('devices').get()).docs.map(
     (doc) => {
       const { type, ...device } = doc.data()
@@ -87,7 +87,7 @@ const exportJson = async () => {
   )
 }
 
-const importJson = async () => {
+const uploadJson = async () => {
   await deleteCollection('devices')
   await deleteCollection('rooms')
   await deleteCollection('devices/definitions/sourceTypes')
@@ -130,12 +130,12 @@ const importJson = async () => {
 }
 
 switch (mode) {
-  case '--export': {
-    exportJson()
+  case '--download': {
+    downloadJson()
     break
   }
-  case '--import': {
-    importJson()
+  case '--upload': {
+    uploadJson()
     break
   }
 }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "import": "node app.js --import",
-    "export": "node app.js --export"
+    "upload": "node app.js --upload",
+    "download": "node app.js --download"
   },
   "keywords": [],
   "author": "",
